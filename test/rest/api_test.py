@@ -17,7 +17,7 @@ class TestApi(unittest.TestCase):
 
     def do_request(self, url):
         try:
-            return urlopen(url, timeout=DEFAULT_TIMEOUT)
+            return urlopen(url, data=None, timeout=DEFAULT_TIMEOUT)
         except HTTPError as e:
             self.assertEqual(
                 e.code, http.client.OK, f"Error en la petición API a {url}"
