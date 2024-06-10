@@ -16,12 +16,10 @@ class TestApi(unittest.TestCase):
         self.assertTrue(len(BASE_URL) > 8, "URL no configurada")
 
     def do_request(self, url):
-        try:
-            return urlopen(url, data=None, timeout=DEFAULT_TIMEOUT)
-        except HTTPError as e:
-            self.assertEqual(
-                e.code, http.client.OK, f"Error en la petición API a {url}"
-            )
+        response = urlopen(url, timeout=DEFAULT_TIMEOUT)
+        self.assertEqual(
+            response.status, http.client.OK, f"Error en la petición API a {url}"
+        )
 
     def test_api_add_ok(self):
         url = f"{BASE_URL}/calc/add/2/2"
