@@ -26,3 +26,7 @@ class TestApi(unittest.TestCase):
     def test_api_add_ok(self):
         url = f"{BASE_URL}/calc/add/2/2"
         self.do_request(url)
+
+    def test_api_subtract_ok(self):
+        url = f"{BASE_URL}/calc/subtract/2/2"
+        self.do_request(url)
