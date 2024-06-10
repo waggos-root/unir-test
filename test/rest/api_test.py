@@ -27,30 +27,66 @@ class TestApi(unittest.TestCase):
         url = f"{BASE_URL}/calc/add/2/2"
         self.do_request(url)
 
+    def test_api_add_error(self):
+        url = f"{BASE_URL}/calc/add/2/x"
+        self.do_request(url)
+
     def test_api_subtract_ok(self):
         url = f"{BASE_URL}/calc/subtract/2/2"
+        self.do_request(url)
+
+    def test_api_subtract_error(self):
+        url = f"{BASE_URL}/calc/subtract/2/x"
         self.do_request(url)
 
     def test_api_multiply_ok(self):
         url = f"{BASE_URL}/calc/multiply/2/2"
         self.do_request(url)
 
+    def test_api_multiply_error(self):
+        url = f"{BASE_URL}/calc/multiply/2/x"
+        self.do_request(url)
+
     def test_api_divide_ok(self):
         url = f"{BASE_URL}/calc/divide/2/1"
+        self.do_request(url)
+
+    def test_api_divide_error(self):
+        url = f"{BASE_URL}/calc/divide/2/x"
+        self.do_request(url)
+
+    def test_api_divide_by_zero_error(self):
+        url = f"{BASE_URL}/calc/divide/2/0"
         self.do_request(url)
 
     def test_api_power(self):
         url = f"{BASE_URL}/calc/power/4/2"
         self.do_request(url)
 
+    def test_api_power_error(self):
+        url = f"{BASE_URL}/calc/power/4/x"
+        self.do_request(url)
+
     def test_api_square_ok(self):
         url = f"{BASE_URL}/calc/square/64"
+        self.do_request(url)
+
+    def test_api_square_error(self):
+        url = f"{BASE_URL}/calc/square/x"
+        self.do_request(url)
+
+    def test_api_square_negative_error(self):
+        url = f"{BASE_URL}/calc/square/-64"
         self.do_request(url)
 
     def test_api_log10_ok(self):
         url = f"{BASE_URL}/calc/log10/10"
         self.do_request(url)
 
-    def test_api_add_error(self):
-        url = f"{BASE_URL}/calc/add/2/x"
+    def test_api_log10_error(self):
+        url = f"{BASE_URL}/calc/log10/x"
+        self.do_request(url)
+
+    def test_api_log10_negative_error(self):
+        url = f"{BASE_URL}/calc/log10/-10"
         self.do_request(url)
