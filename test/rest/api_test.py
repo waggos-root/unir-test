@@ -50,3 +50,7 @@ class TestApi(unittest.TestCase):
     def test_api_log10_ok(self):
         url = f"{BASE_URL}/calc/log10/10"
         self.do_request(url)
+
+    def test_api_add_error(self):
+        url = f"{BASE_URL}/calc/add/2/x"
+        self.do_request(url)
