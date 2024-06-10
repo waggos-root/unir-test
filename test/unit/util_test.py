@@ -22,3 +22,13 @@ class TestUtil(unittest.TestCase):
         self.assertRaises(TypeError, util.convert_to_number, "s")
         self.assertRaises(TypeError, util.convert_to_number, None)
         self.assertRaises(TypeError, util.convert_to_number, object())
+
+    def test_check_positive_method_returns_correct_result(self):
+        self.assertEqual(None, util.check_positive(1))
+        self.assertEqual(None, util.check_positive(0))
+        self.assertEqual(None, util.check_positive(0.0009))
+
+    def test_check_positive_fails_with_must_be_positive(self):
+        self.assertRaises(ValueError, util.check_positive, -1)
+        self.assertRaises(ValueError, util.check_positive, -0.00001)
+        self.assertRaises(ValueError, util.check_positive, "xx")
