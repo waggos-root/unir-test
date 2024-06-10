@@ -30,3 +30,23 @@ class TestApi(unittest.TestCase):
     def test_api_subtract_ok(self):
         url = f"{BASE_URL}/calc/subtract/2/2"
         self.do_request(url)
+
+    def test_api_multiply_ok(self):
+        url = f"{BASE_URL}/calc/multiply/2/2"
+        self.do_request(url)
+
+    def test_api_divide_ok(self):
+        url = f"{BASE_URL}/calc/divide/2/1"
+        self.do_request(url)
+
+    def test_api_power(self):
+        url = f"{BASE_URL}/calc/power/4/2"
+        self.do_request(url)
+
+    def test_api_square_ok(self):
+        url = f"{BASE_URL}/calc/square/64"
+        self.do_request(url)
+
+    def test_api_log10_ok(self):
+        url = f"{BASE_URL}/calc/log10/10"
+        self.do_request(url)
